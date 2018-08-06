@@ -48,7 +48,8 @@ while(True):
                 c = conn.cursor()
                 time_entry = str(datetime.now().strftime('%Y-%m-%d %I:%M:%S%p'))
                 tname = 'Entries_for_'+str(datetime.now().date().strftime('%d%m%Y'))
-                c.execute('UPDATE '+tname+' SET Time='+time_entry+', Status=Present WHERE ID='+str(nbr_predicted))
+                values = (time_entry, str(nbr_predicted),)
+                c.execute('UPDATE '+tname+' SET Time=?,Status=Present WHERE ID=?',values)
                 c.close()
                 conn.close()
                         

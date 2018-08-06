@@ -32,7 +32,7 @@ while True:
         c.close()
         conn.close()    
         
-    if datetime.now().time().hour == 01 and datetime.now().time().minute == 15: #change the number to present hour to see it working
+    if datetime.now().time().hour == 1 and datetime.now().time().minute == 30: #change the number to present hour to see it working
         conn = sqlite3.connect(sqlite_file)
         tn='Entries_for_'+str(datetime.now().date().strftime('%d%m%Y'))
         c = conn.cursor()

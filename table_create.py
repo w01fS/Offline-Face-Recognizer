@@ -19,15 +19,14 @@ while i>0 and i<2:
         conn = sqlite3.connect(sqlite_file)
         c = conn.cursor()
         tname = 'Entries_for_'+str(datetime.now().date().strftime('%d%m%Y'))
-        time_entry = str(datetime.now().strftime('%Y-%m-%d %I:%M:%S%p'))
         c.execute('CREATE TABLE IF NOT EXISTS '+tname+' (ID TEXT PRIMARY KEY, Name TEXT, Time DATE, Status TEXT DEFAULT "Absent" )')
         c.execute('SELECT ID, Name FROM FaceBase')
         rows = c.fetchall()
         for row in rows:
             uid, name = row
             print(uid, name)
-            values = (uid, name, time_entry,)
-            c.execute('INSERT INTO '+tname+' (ID, Name, Time) VALUES(?, ?, ?)', values)
+            values = (uid, name,)
+            c.execute('INSERT INTO '+tname+' (ID, Name) VALUES(?, ?)', values)
         i += 1
         conn.commit()
         c.close()

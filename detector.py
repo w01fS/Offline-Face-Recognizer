@@ -31,7 +31,7 @@ cap = cv2.VideoCapture(0)
 font = cv2.FONT_HERSHEY_SIMPLEX
 
 while(True):
-    if datetime.now().time().hour == 00:
+    if datetime.now().time().hour == 01:
         ret, img = cap.read()
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         faces=faceCascade.detectMultiScale(gray,1.3,5);

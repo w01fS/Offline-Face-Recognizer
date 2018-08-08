@@ -27,12 +27,11 @@ def getProfile(id):
     return profile
 
 
-
+cap = cv2.VideoCapture(0)
 font = cv2.FONT_HERSHEY_SIMPLEX
 
 while(True):
-    if datetime.now().time().hour == 22 and datetime.now().time().minute < 15 and datetime.now().time().minute > 9:
-        cap = cv2.VideoCapture(0)
+    if datetime.now().time().hour == 22 and datetime.now().time().minute < 25 and datetime.now().time().minute > 19:
         ret, img = cap.read()
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         faces=faceCascade.detectMultiScale(gray,1.3,5);

@@ -31,7 +31,7 @@ def getProfile(id):
 font = cv2.FONT_HERSHEY_SIMPLEX
 
 while(True):
-    if datetime.now().time().hour == 22 and datetime.now().time().minute < 5 and datetime.now().time().minute > 1:
+    if datetime.now().time().hour == 22 and datetime.now().time().minute < 15 and datetime.now().time().minute > 9:
         cap = cv2.VideoCapture(0)
         ret, img = cap.read()
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)

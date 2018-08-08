@@ -31,13 +31,12 @@ while True:
         c.close()
         conn.close()    
         
-    if datetime.now().time().hour == 22 and datetime.now().time().minute == 6: #change the number to present hour to see it working
+    if datetime.now().time().hour == 22 and datetime.now().time().minute ==15 and datetime.now().time().second ==00: #change the number to present hour to see it working
         conn = sqlite3.connect(sqlite_file)
         tn='Entries_for_'+str(datetime.now().date().strftime('%d%m%Y'))
         c = conn.cursor()
         c.execute('SELECT * FROM '+tn)
         data = c.fetchall()
-        print(data)
         df = pd.read_sql('SELECT * FROM '+tn, conn)
         writer = ExcelWriter(tn+'.xlsx')
         df.to_excel(writer,'Sheet1')

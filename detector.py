@@ -31,7 +31,7 @@ cap = cv2.VideoCapture(0)
 font = cv2.FONT_HERSHEY_SIMPLEX
 
 while(True):
-    if datetime.now().time().hour == 2 and datetime.now().time().minute < 35 and datetime.now().time().minute > 25:
+    if datetime.now().time().hour == 21 and datetime.now().time().minute < 5 and datetime.now().time().minute > 00:
         ret, img = cap.read()
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         faces=faceCascade.detectMultiScale(gray,1.3,5);
@@ -48,7 +48,7 @@ while(True):
                 c = conn.cursor()
                 time_entry = str(datetime.now().strftime('%Y-%m-%d %I:%M:%S%p'))
                 tname = 'Entries_for_'+str(datetime.now().date().strftime('%d%m%Y'))
-                values = (time_entry, str(nbr_predicted), 'Present')
+                values = (time_entry, 'Present', str(nbr_predicted),)
                 c.execute('UPDATE '+tname+' SET Time=?,Status=? WHERE ID=?',values)
                 c.close()
                 conn.close()

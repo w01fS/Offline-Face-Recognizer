@@ -50,6 +50,7 @@ while(True):
                 tname = 'Entries_for_'+str(datetime.now().date().strftime('%d%m%Y'))
                 values = (time_entry, 'Present', str(nbr_predicted),)
                 c.execute('UPDATE '+tname+' SET Time=?,Status=? WHERE ID=?',values)
+                conn.commit()
                 c.close()
                 conn.close()
                         

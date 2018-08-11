@@ -15,7 +15,7 @@ sqlite_file = 'trial.db' #put the name of your sqlite file in single inverted co
 i=1
 
 while True:
-    if datetime.now().time().hour == 22 and datetime.now().time().second < 5: #change the number to present hour to see it working
+    if datetime.now().time().hour == 23 and datetime.now().time().minute == 20 and datetime.now().time().second < 5: #change the number to present hour to see it working
         conn = sqlite3.connect(sqlite_file)
         c = conn.cursor()
         tname = 'Entries_for_'+str(datetime.now().date().strftime('%d%m%Y'))
@@ -31,7 +31,7 @@ while True:
         c.close()
         conn.close()    
         
-    if datetime.now().time().hour == 22 and datetime.now().time().minute ==25 and datetime.now().time().second ==00: #change the number to present hour to see it working
+    if datetime.now().time().hour == 23 and datetime.now().time().minute ==25 and datetime.now().time().second < 10: #change the number to present hour to see it working
         conn = sqlite3.connect(sqlite_file)
         tn='Entries_for_'+str(datetime.now().date().strftime('%d%m%Y'))
         c = conn.cursor()
